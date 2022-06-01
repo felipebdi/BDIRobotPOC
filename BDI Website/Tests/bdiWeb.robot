@@ -11,8 +11,8 @@ ${URL}                  https://www.blackdoginstitute.org.au/
 ${OS}                   Windows
 ${OS_VERSION}           10
 ${SEARCH_TERM}          Mental Health
-${BROWSERSTACK_USER}    felipepereira_HPCYc7
-${BROWSERSTACK_KEY}     QxpTYb1zyYWvb3UVwGsd
+${BROWSERSTACK_USER}    username
+${BROWSERSTACK_KEY}     password
 ${REMORE_URL}           http://${BROWSERSTACK_USER}:${BROWSERSTACK_KEY}@hub.browserstack.com:80/wd/hub
 
 *** Test Cases ***
