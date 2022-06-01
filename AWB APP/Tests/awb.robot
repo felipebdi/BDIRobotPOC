@@ -3,7 +3,7 @@ Documentation
 Resource        ../Resources/common.resource
 Resource        ../Resources/AWBAPP.resource
 Test Setup      Start mobile app test
-Test Teardown   #End mobile app test
+Test Teardown   End mobile app test
 
 *** Variables ***
 ${BROWSERSTACK_USER}    felipepereira_HPCYc7
@@ -20,4 +20,4 @@ Verify unregistered user can access Help section
     Given application is opened
     When user clicks on "I Need Help Now" button
     Then user is redirected to "Be Save" screen
-    and emergency numbers are displayed
+    And emergency numbers are displayed
