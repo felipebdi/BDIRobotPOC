@@ -9,7 +9,7 @@ ${LIFELINE_NUMBER}             Lifeline\n13 11 14
 
 *** Keywords ***
 verify page title
-    element attribute should match    accessibility_id=${PAGE_TITLE}  content-desc   BE SAFE
+    element should be visible    accessibility_id=${PAGE_TITLE}
 
 verify emergency numbers
 
