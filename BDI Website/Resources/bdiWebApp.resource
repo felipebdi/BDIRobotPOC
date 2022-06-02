@@ -8,15 +8,19 @@ Resource    ../Resources/PO/donatePage.resource
 Resource    ../Resources/PO/aboutBDIPage.resource
 
 *** Keywords ***
+#Landing page keywords
 user navigates to BDI website
     load page
     verify landing page loaded
 
-#serch keywords
+
+#serch bar keywords
 user searches for term
     type on search bar
     press search button
 
+
+#search results page keywords
 list of relevant terms should be displayed
     verify search results page loaded
 
@@ -25,6 +29,7 @@ user should be able to open relevant article
     click on first article
     get text from first article and compare with result page title
         should contain    ${SEARCH_PAGE_FIRST_RESULT_TITLE}  ${ARTICLE_PAGE_ARTICLE_TITLE}
+
 
 #donate keywords
 user clicks on donate link
@@ -46,5 +51,7 @@ user is not on the homepage
 user clicks on "About Black Dog" button
     click logo
 
+
+#About BDI page keywords
 user is redirected to "About BDI" page
     verify user is on "About BDI" page
