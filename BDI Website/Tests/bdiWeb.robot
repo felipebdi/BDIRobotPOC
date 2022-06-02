@@ -2,20 +2,23 @@
 Documentation   BDI website test suite
 Resource    ../Resources/bdiWebApp.resource
 Resource    ../Resources/common.resource
-Test Setup  Begin web test locally
+Test Setup  Begin mobile web test in BrowserStack
 Test Teardown   End web test
 
 *** Variables ***
-${BROWSER}              Chrome     #android or iphone
-${URL}                  https://www.blackdoginstitute.org.au/
-${OS}                   Windows
-${OS_VERSION}           10
-${SEARCH_TERM}          Mental Health
 ${BROWSERSTACK_USER}    username
 ${BROWSERSTACK_KEY}     password
 ${REMORE_URL}           http://${BROWSERSTACK_USER}:${BROWSERSTACK_KEY}@hub.browserstack.com:80/wd/hub
-${WINDOW_WIDTH}         360
-${WINDOW_HEIGHT}        640
+${URL}                  https://www.blackdoginstitute.org.au/
+${SEARCH_TERM}          Mental Health
+#Desktop Variables
+${DESK_BROWSER}         Chrome
+${DESK_OS}              Windows
+${DESK_OS_VERSION}      10
+#Mobile Variables
+${MOB_BROWSER}         android
+${DEVICE}              Google Pixel 6
+${MOB_OS_VERSION}      12.0
 
 *** Test Cases ***
 As a user, I want to search on BDI website, so that I can read relevant article

@@ -3,25 +3,24 @@ Documentation    This is the common resources with setup and teardown
 Library    SeleniumLibrary
 
 *** Variables ***
-&{WEB_BSTACK_OPTIONS}       os=${OS}    osVersion=${OS_VERSION}
-&{MOB_BSTACK_OPTIONS}       deviceName=${OS}
+&{WEB_BSTACK_OPTIONS}       os=${DESK_OS}    osVersion=${DESK_OS_VERSION}
+&{MOB_BSTACK_OPTIONS}       deviceName=${DEVICE}
 
 *** Keywords ***
 Begin desktop web test in BrowserStack
-    &{DESIRED_CAPABILITIES}   create dictionary    bstack:options=${WEB_BSTACK_OPTIONS}     browserName=${BROWSER}
-    open browser           browser=${BROWSER}       remote_url=${REMORE_URL}    desired_capabilities=${DESIRED_CAPABILITIES}
+    &{DESIRED_CAPABILITIES}   create dictionary    bstack:options=${WEB_BSTACK_OPTIONS}     browserName=${DESK_BROWSER}
+    open browser           browser=${DESK_BROWSER}        remote_url=${REMORE_URL}    desired_capabilities=${DESIRED_CAPABILITIES}
     maximize browser window
 
 Begin mobile web test in BrowserStack
-    &{DESIRED_CAPABILITIES}   create dictionary    bstack:options=${MOB_BSTACK_OPTIONS}     browserName=${BROWSER}
+    &{DESIRED_CAPABILITIES}   create dictionary    bstack:options=${MOB_BSTACK_OPTIONS}     browserName=${MOB_BROWSER}
     open browser              remote_url=${REMORE_URL}    desired_capabilities=${DESIRED_CAPABILITIES}
 
 
 Begin web test locally
-    open browser    browser=${BROWSER}
+    open browser    browser=${DESK_BROWSER}
     maximize browser window
-    #set window size   ${WINDOW_WIDTH}   ${WINDOW_HEIGHT}    False
-    #reload page
+
 
 End web test
     close all browsers
