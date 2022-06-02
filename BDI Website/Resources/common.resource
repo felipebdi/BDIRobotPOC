@@ -20,6 +20,8 @@ Begin mobile web test in BrowserStack
 Begin web test locally
     open browser    browser=${BROWSER}
     maximize browser window
+    #set window size   ${WINDOW_WIDTH}   ${WINDOW_HEIGHT}    False
+    #reload page
 
 End web test
     close all browsers

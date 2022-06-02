@@ -3,7 +3,7 @@ Documentation   Elements on BDI landing page
 Library    SeleniumLibrary
 
 *** Variables ***
-${LANDING_BDI_LOGOS}     xpath=//*[@class='primary-nav__logo' or @class='mobile-nav__logo']
+${LANDING_BDI_LOGOS}     xpath=//div[@class='primary-nav__logo']
 
 *** Keywords ***
 load page

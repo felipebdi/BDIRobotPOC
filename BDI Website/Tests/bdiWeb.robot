@@ -2,7 +2,7 @@
 Documentation   BDI website test suite
 Resource    ../Resources/bdiWebApp.resource
 Resource    ../Resources/common.resource
-Test Setup  Begin desktop web test in BrowserStack
+Test Setup  Begin web test locally
 Test Teardown   End web test
 
 *** Variables ***
@@ -14,6 +14,8 @@ ${SEARCH_TERM}          Mental Health
 ${BROWSERSTACK_USER}    username
 ${BROWSERSTACK_KEY}     password
 ${REMORE_URL}           http://${BROWSERSTACK_USER}:${BROWSERSTACK_KEY}@hub.browserstack.com:80/wd/hub
+${WINDOW_WIDTH}         360
+${WINDOW_HEIGHT}        640
 
 *** Test Cases ***
 As a user, I want to search on BDI website, so that I can read relevant article
@@ -34,3 +36,10 @@ As a user, I want to be able to make monthly donations to BDI, so that I can hel
     Then user should be redirected to the donate page
     And user should be able to select donation frequency
     and user should be able to select donation amount
+
+As a user I want to click on "About Black Dog" button and should land on the "About BDI" page
+    [Documentation]    Go to About BDI page from Donate page
+
+    Given user is not on the homepage
+    When user clicks on "About Black Dog" button
+    Then user is redirected to "About BDI" page
