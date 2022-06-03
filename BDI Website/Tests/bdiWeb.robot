@@ -2,7 +2,7 @@
 Documentation   BDI website test suite
 Resource    ../Resources/bdiWebApp.resource
 Resource    ../Resources/common.resource
-Test Setup  Begin mobile web test in BrowserStack
+Test Setup  Begin desktop web test in BrowserStack
 Test Teardown   End web test
 
 *** Variables ***

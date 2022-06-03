@@ -17,7 +17,6 @@ user navigates to BDI website
 #serch bar keywords
 user searches for term
     type on search bar
-    press search button
 
 
 #search results page keywords
