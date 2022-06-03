@@ -3,11 +3,12 @@ Documentation   Elements on BDI Top Navigation Bar
 Library    SeleniumLibrary
 
 *** Variables ***
-${TOPNAV_SEARCH_BAR}           xpath://input[@type='search']
-${TOPNAV_MOBILE_SEARCH_BAR}    xpath://div[@class='mobile-menu active']//input
-${TOPNAV_SEARCH_BUTTON}        xpath://button[@class='global-search__button']
-${TOPNAV_HAMBURGER_BUTTON}     xpath://button[@class='mobile-nav__hamburger hamburger-button hamburger-button--open']
-${TOPNAV_DONATE_BUTTON}        xpath://i[@class='icon icon-donate']
+${TOPNAV_SEARCH_BAR}                 xpath://input[@type='search']
+${TOPNAV_MOBILE_SEARCH_BAR}          xpath://div[@class='mobile-menu active']//input
+${TOPNAV_MOBILE_DONATE_BUTTON}       xpath://a[@class='button button--ghost'][2]
+${TOPNAV_SEARCH_BUTTON}              xpath://button[@class='global-search__button']
+${TOPNAV_HAMBURGER_BUTTON}           xpath://button[@class='mobile-nav__hamburger hamburger-button hamburger-button--open']
+${TOPNAV_DONATE_BUTTON}              xpath://i[@class='icon icon-donate']
 
 *** Keywords ***
 type on search bar
@@ -21,4 +22,12 @@ type on search bar
 
 
 click on donate link
-    click element    ${TOPNAV_DONATE_BUTTON}
+    ${status}=  run keyword and return status    element should be visible   ${TOPNAV_DONATE_BUTTON}
+        run keyword if    '${status}'=='True'   run keyword
+                           ...  click element    ${TOPNAV_DONATE_BUTTON}
+                      ...  ELSE    run keywords
+                           ...     click button    ${TOPNAV_HAMBURGER_BUTTON}
+                           ...     AND  wait until element is visible    ${TOPNAV_MOBILE_SEARCH_BAR}
+                           ...     AND  click link    ${TOPNAV_MOBILE_DONATE_BUTTON}
+
+

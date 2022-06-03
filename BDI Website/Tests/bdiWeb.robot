@@ -2,7 +2,7 @@
 Documentation   BDI website test suite
 Resource    ../Resources/bdiWebApp.resource
 Resource    ../Resources/common.resource
-Test Setup  Begin desktop web test in BrowserStack
+Test Setup  Begin web test locally
 Test Teardown   End web test
 
 *** Variables ***
@@ -42,6 +42,7 @@ As a user, I want to be able to make monthly donations to BDI, so that I can hel
 
 As a user I want to click on "About Black Dog" button and should land on the "About BDI" page
     [Documentation]    Go to About BDI page from Donate page
+    [Tags]  smoke
 
     Given user is not on the homepage
     When user clicks on "About Black Dog" button
