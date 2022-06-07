@@ -6,6 +6,7 @@ Test Setup  Begin web test locally
 Test Teardown   End web test
 
 *** Variables ***
+${SETUP}                setup
 ${BROWSERSTACK_USER}    username
 ${BROWSERSTACK_KEY}     password
 ${REMORE_URL}           http://${BROWSERSTACK_USER}:${BROWSERSTACK_KEY}@hub.browserstack.com:80/wd/hub
@@ -25,6 +26,7 @@ As a user, I want to search on BDI website, so that I can read relevant article
     [Documentation]    Search key terms on BDI website
     [Tags]    v1.0.1    v1.0.2
 
+    [Setup]     ${SETUP}
     Given user navigates to BDI website
     When user searches for term
     Then list of relevant terms should be displayed
@@ -34,6 +36,7 @@ As a user, I want to be able to make monthly donations to BDI, so that I can hel
     [Documentation]    Using the donate functionality
     [Tags]    v1.0.3
 
+    [Setup]     ${SETUP}
     Given user navigates to BDI website
     When user clicks on donate link
     Then user should be redirected to the donate page
@@ -44,6 +47,7 @@ As a user I want to click on "About Black Dog" button and should land on the "Ab
     [Documentation]    Go to About BDI page from Donate page
     [Tags]  smoke
 
+    [Setup]     ${SETUP}
     Given user is not on the homepage
     When user clicks on "About Black Dog" button
     Then user is redirected to "About BDI" page

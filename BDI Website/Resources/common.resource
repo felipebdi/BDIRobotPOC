@@ -16,12 +16,14 @@ Begin mobile web test in BrowserStack
     &{DESIRED_CAPABILITIES}   create dictionary    bstack:options=${MOB_BSTACK_OPTIONS}     browserName=${MOB_BROWSER}
     open browser              remote_url=${REMORE_URL}    desired_capabilities=${DESIRED_CAPABILITIES}
 
-
-Begin web test locally
+Begin desktop web test locally
     open browser    browser=${DESK_BROWSER}
     maximize browser window
     #set window size    360      640
 
+Begin mobile web test locally
+    open browser    browser=${DESK_BROWSER}
+    set window size    360      640
 
 End web test
     close all browsers
